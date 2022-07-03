@@ -8,8 +8,9 @@ GPIO.setmode(GPIO.BOARD)
 
 pin20 = 20  #接声音传感器
 pin21 = 21  #接声音传感器
-GPIO.setup(pin20, GPIO.IN)  #设置引脚为输入模式
-GPIO.setup(pin21, GPIO.IN)  #设置引脚为输入模式
+pins = [pin20, pin21]
+GPIO.setup(pins, GPIO.IN)  #设置引脚为输入模式
+# GPIO.setup(pin21, GPIO.IN)  #设置引脚为输入模式
 
 while True:
 
