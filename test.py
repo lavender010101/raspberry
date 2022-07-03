@@ -17,7 +17,7 @@ while True:
     # else:
     #     print("high")
 
-    print("pin21 -> " + GPIO.input(pin21))
+    print(GPIO.input(pin21))
     # print("pin21 -> " + GPIO.input(pin21))
 
     time.sleep(2)  #一秒一次
