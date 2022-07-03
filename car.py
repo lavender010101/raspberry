@@ -18,7 +18,7 @@ class Car:
         self.PIN_IN2_R = PIN_IN2_R
 
         GPIO.setup(self.PIN_IN1_L, GPIO.OUT)
-        GPIO.setup(self.PIN_IN2_R, GPIO.OUT)
+        GPIO.setup(self.PIN_IN2_L, GPIO.OUT)
         GPIO.setup(self.PIN_IN1_R, GPIO.OUT)
         GPIO.setup(self.PIN_IN2_R, GPIO.OUT)
 
