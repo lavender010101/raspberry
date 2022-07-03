@@ -6,7 +6,7 @@ import time  #导入time库
 
 pin = 12  #接声音传感器
 
-GPIO.setmode(GPIO.BORAD)  #设置引脚为BCM
+GPIO.setmode(GPIO.BOARD)  #设置引脚为BCM
 
 GPIO.setup(pin, GPIO.IN)  #设置引脚为输入模式
 
