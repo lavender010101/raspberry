@@ -14,5 +14,7 @@ while True:
 
     if GPIO.input(pin) == GPIO.LOW:  #有声音
         print("low")
+    else:
+        print("high")
 
-    time.sleep(1)  #一秒一次
+    time.sleep(2)  #一秒一次
