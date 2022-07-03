@@ -15,7 +15,7 @@ if __name__ == "__main__":
         #     if GPIO.input(btn) == GPIO.HIGH:
         #         print("high...")
         #     time.sleep(1)
-        while GPIO.input(btn) == GPIO.low:
+        while GPIO.input(btn) == GPIO.LOW:
             continue
         print("start...")
     except KeyboardInterrupt:
