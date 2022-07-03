@@ -27,7 +27,7 @@ if __name__ == "__main__":
 
     try:
         flag = 0
-        while flag < 2:
+        while flag < 3:
             switchy(flag)
             if GPIO.input(btn) == GPIO.HIGH:
                 time.sleep(1)
