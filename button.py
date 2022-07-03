@@ -30,6 +30,7 @@ if __name__ == "__main__":
         while flag < 2:
             switchy(flag)
             if GPIO.input(btn) == GPIO.HIGH:
+                time.sleep(1)
                 flag += 1
 
     except KeyboardInterrupt:
