@@ -15,7 +15,7 @@ def switchy(flag):
     elif flag == 2:
         GPIO.output(led1, GPIO.LOW)
         GPIO.output(led2, GPIO.HIGH)
-    else:
+    elif flag == 0:
         GPIO.output(led1, GPIO.LOW)
         GPIO.output(led2, GPIO.LOW)
 
@@ -27,24 +27,10 @@ if __name__ == "__main__":
 
     try:
         flag = 0
-        while True:
-            while flag == 0:
-                switchy(flag)
-                if GPIO.input(btn) == GPIO.HIGH:
-                    flag = 1
-                    break
-
-            while flag == 1:
-                switchy(flag)
-                if GPIO.input(btn) == GPIO.HIGH:
-                    flag = 2
-                    break
-
-            while flag == 2:
-                switchy(flag)
-                if GPIO.input(btn) == GPIO.HIGH:
-                    # flag =
-                    break
+        while flag < 2:
+            switchy(flag)
+            if GPIO.input(btn) == GPIO.HIGH:
+                flag += 1
 
     except KeyboardInterrupt:
         print("Exiting...")
