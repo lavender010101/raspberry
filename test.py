@@ -12,9 +12,11 @@ GPIO.setup(pin, GPIO.IN)  #设置引脚为输入模式
 
 while True:
 
-    if GPIO.input(pin) == GPIO.LOW:  #有声音
-        print("low")
-    else:
-        print("high")
+    # if GPIO.input(pin) == GPIO.LOW:  #有声音
+    #     print("low")
+    # else:
+    #     print("high")
+
+    print(GPIO.input(pin))
 
     time.sleep(2)  #一秒一次
