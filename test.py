@@ -1,12 +1,18 @@
-import RPi.GPIO as GPIO  #导入库
+# -*- coding: UTF-8 -*-
 
-pin = 1
-GPIO.setmode(GPIO.BCM/BOARD)  # 引入针脚模式BMC或者BOARD模式
+import RPi.GPIO as GPIO  #导入RPi.GPIO库
 
-GPIO.setup(pin, GPIO.IN)  #设置引脚为输入
+import time  #导入time库
 
-# GPIO.setup(pin, GPIO.OUT)  #设置引脚为输出
-# 
-# GPIO.setup(pin, GPIO.OUT, initial=GPIO.HIGH)  #设置初始化为高电平
-# 
-# GPIO.setup(pin, GPIO.OUT, initial=GPIO.LOW)  #设置初始化为低电平
+pin = 17  #接声音传感器
+
+GPIO.setmode(GPIO.BCM)  #设置引脚为BCM
+
+GPIO.setup(pin, GPIO.IN)  #设置引脚为输入模式
+
+while True:
+
+    if GPIO.input(pin) == GPIO.LOW:  #有声音
+        print("low")
+
+    time.sleep(1)  #一秒一次
