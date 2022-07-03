@@ -9,12 +9,15 @@ if __name__ == "__main__":
     GPIO.setup(btn, GPIO.IN)
 
     try:
-        while True:
-            if GPIO.input(btn) == GPIO.LOW:
-                print("low...")
-            if GPIO.input(btn) == GPIO.HIGH:
-                print("high...")
-            time.sleep(1)
+        # while True:
+        #     if GPIO.input(btn) == GPIO.LOW:
+        #         print("low...")
+        #     if GPIO.input(btn) == GPIO.HIGH:
+        #         print("high...")
+        #     time.sleep(1)
+        while GPIO.input(btn) == GPIO.low:
+            continue
+        print("start...")
     except KeyboardInterrupt:
         print("Exiting...")
     GPIO.cleanup()
