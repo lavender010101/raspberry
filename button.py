@@ -10,9 +10,9 @@ if __name__ == "__main__":
 
     try:
         while True:
-            if GPIO.input(pin) == GPIO.LOW:
+            if GPIO.input(btn) == GPIO.LOW:
                 print("low...")
-            if GPIO.input(pin) == GPIO.HIGH:
+            if GPIO.input(btn) == GPIO.HIGH:
                 print("high...")
             time.sleep(1)
     except KeyboardInterrupt:
