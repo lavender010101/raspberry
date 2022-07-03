@@ -1,8 +1,8 @@
 import RPi.GPIO as GPIO
 import time
 
-PIN_IN1_L = 11
-PIN_IN2_L = 12
+PIN_IN1_L = 18
+PIN_IN2_L = 22
 
 PIN_IN1_R = 15
 PIN_IN2_R = 13
