@@ -10,7 +10,7 @@ PIN_IN2_R = 16
 class Car:
 
     def __init__(self, PIN_IN1_L, PIN_IN2_L, PIN_IN1_R, PIN_IN2_R):
-
+        GPIO.clearup()
         GPIO.setmode(GPIO.BOARD)
 
         self.PIN_IN1_L = PIN_IN1_L
