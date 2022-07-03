@@ -12,7 +12,7 @@ def switchy(flag):
     if flag == 0:
         GPIO.output(led1, GPIO.LOW)
         GPIO.output(led2, GPIO.LOW)
-    if flag % 2 == 1:
+    elif flag % 2 == 1:
         GPIO.output(led1, GPIO.HIGH)
         GPIO.output(led2, GPIO.LOW)
     elif flag % 2 == 0:
