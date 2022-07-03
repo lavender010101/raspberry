@@ -26,8 +26,8 @@ if __name__ == "__main__":
     GPIO.setup(led2, GPIO.OUT)
 
     try:
-        while flag != 2:
-            flag = 0
+        flag = 0
+        while True:
             while flag == 0:
                 switchy(flag)
                 if GPIO.input(btn) == GPIO.HIGH:
