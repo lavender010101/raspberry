@@ -3,6 +3,8 @@
 import RPi.GPIO as GPIO
 import time
 
+GPIO.setmode(GPIO.BOARD)
+
 pin = 1
 GPIO.setup(pin, GPIO.IN)
 while True:
