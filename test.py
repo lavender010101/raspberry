@@ -1,7 +1,7 @@
 import RPi.GPIO as GPIO  #导入库
 
 pin = 1
-GPIO.setmode(GPIO.BOARD)  # 引入针脚模式BMC或者BOARD模式
+GPIO.setmode(GPIO.BCM/BOARD)  # 引入针脚模式BMC或者BOARD模式
 
 GPIO.setup(pin, GPIO.IN)  #设置引脚为输入
 
