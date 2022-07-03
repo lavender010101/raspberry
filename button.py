@@ -4,20 +4,48 @@ import time
 GPIO.setmode(GPIO.BOARD)
 
 btn = 35
+led1 = 29
+led2 = 31
+
+
+def switchy(flag):
+    if flag == 1:
+        GPIO.output(led1, GPIO.HIGH)
+        GPIO.output(led2, GPIO.LOW)
+    elif flag == 2:
+        GPIO.output(led1, GPIO.LOW)
+        GPIO.output(led2, GPIO.HIGH)
+    else:
+        GPIO.output(led1, GPIO.LOW)
+        GPIO.output(led2, GPIO.LOW)
+
 
 if __name__ == "__main__":
     GPIO.setup(btn, GPIO.IN)
+    GPIO.setup(led1, GPIO.OUT)
+    GPIO.setup(led2, GPIO.OUT)
 
     try:
-        # while True:
-        #     if GPIO.input(btn) == GPIO.LOW:
-        #         print("low...")
-        #     if GPIO.input(btn) == GPIO.HIGH:
-        #         print("high...")
-        #     time.sleep(1)
-        while GPIO.input(btn) == GPIO.LOW:
-            continue
-        print("start...")
+        while flag != 2:
+            flag = 0
+            while flag == 0:
+                switchy(flag)
+                if GPIO.input(btn) == GPIO.HIGH:
+                    flag = 1
+                    break
+
+            while flag == 1:
+                switchy(flag)
+                if GPIO.input(btn) == GPIO.HIGH:
+                    flag = 2
+                    break
+
+            while flag == 2:
+                switchy(flag)
+                if GPIO.input(btn) == GPIO.HIGH:
+                    # flag =
+                    break
+
     except KeyboardInterrupt:
         print("Exiting...")
     GPIO.cleanup()
