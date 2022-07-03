@@ -8,6 +8,7 @@ right_front_wheel = 1
 left_rear_wheel = 1
 right_rear_wheel = 1
 
+test_pin = 1
 
 def forward():
     print("forward")
@@ -20,3 +21,8 @@ def backward():
 
 def forward_left():
     pass
+
+def read_pin(pin):
+    pass
+
+
