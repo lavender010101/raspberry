@@ -4,7 +4,7 @@ import RPi.GPIO as GPIO  #导入RPi.GPIO库
 
 import time  #导入time库
 
-    print("pin21 -> "+ GPIO.input(pin21))
+GPIO.setmode(GPIO.BOARD)
 
 pin20 = 20  #接声音传感器
 pin21 = 21  #接声音传感器
