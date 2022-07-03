@@ -9,15 +9,15 @@ led2 = 31
 
 
 def switchy(flag):
-    if flag == 1:
+    if flag == 0:
+        GPIO.output(led1, GPIO.LOW)
+        GPIO.output(led2, GPIO.LOW)
+    if flag % 2 == 1:
         GPIO.output(led1, GPIO.HIGH)
         GPIO.output(led2, GPIO.LOW)
-    elif flag == 2:
+    elif flag % 2 == 0:
         GPIO.output(led1, GPIO.LOW)
         GPIO.output(led2, GPIO.HIGH)
-    elif flag == 0:
-        GPIO.output(led1, GPIO.LOW)
-        GPIO.output(led2, GPIO.LOW)
 
 
 if __name__ == "__main__":
@@ -27,7 +27,7 @@ if __name__ == "__main__":
 
     try:
         flag = 0
-        while flag < 3:
+        while True:
             switchy(flag)
             if GPIO.input(btn) == GPIO.HIGH:
                 flag += 1
