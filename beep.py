@@ -18,6 +18,12 @@ def setup(pin, limit):
 if __name__ == "__main__":
     pin = 11
     limit = 100
-    setup(pin,limit)
+    setup(pin, limit)
 
-    pwm.ChangeDutyCycle(100)
+    try:
+        while True:
+            pwm.ChangeDutyCycle(100)
+            time.sleep(1)
+    except KeyboardInterrupt:
+        print("Exiting...")
+    GPIO.cleanup()
