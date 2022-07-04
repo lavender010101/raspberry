@@ -5,10 +5,12 @@ import time
 
 class Buzzer_Song(object):
     # pin_buzzer是IO引脚， delay_beat是一个音持续的时间（节拍时长控制）
-    def __init__(self, pin_buzzer, delay_beat=0.5):
+    def __init__(self, pin_buzzer, delay_beat=0.5, pin_btn):
         # 设置蜂鸣器引脚模式
         self.pin_buzzer = pin_buzzer
+        self.pin_btn = pin_btn
         GPIO.setup(self.pin_buzzer, GPIO.OUT)
+        GPIO.setup(self.pin_btn, GPIO.IN)
         # 创建PWM对象初始频率 440hz，占空比50%
         self.Buzzer = GPIO.PWM(pin_buzzer, 440)
         self.Buzzer.start(50)
@@ -44,7 +46,30 @@ class Buzzer_Song(object):
             # 切换频率，演奏音乐
             self.Buzzer.ChangeFrequency(self.note2freq[note])
             # 持续的时间
-            time.sleep(self.delay_beat * beat)
+            # time.sleep(self.delay_beat * beat)
+            delay_time = self.delay_beat * beat / 0.01
+            self.action(delay_time)
+
+    def action(self, delay_time):
+        cnt = 0
+
+        # delay
+        while delay_time > 0:
+            if GOIO.input(self.pin_btn) == HIGH:
+                cnt += 1
+            time.sleep(0.01)
+            delay_time -= 1
+        # start
+        if cnt == 1:
+            return 1
+        # exit
+        elif cnt >= 3:
+            self.destroy()
+            return 3
+        # stop
+        elif cnt == 2:
+            return 2
+        return 0
 
     # 对象销毁
     def destroy(self):
@@ -72,6 +97,9 @@ if __name__ == "__main__":
     # 循环演奏音乐
     try:
         while True:
+            start == 0
+            while start < 1:
+                start = m_buzzer_song.action(10)
             m_buzzer_song.play_song(notes, beats)
     except KeyboardInterrupt:
         print('\n Ctrl + C QUIT')
