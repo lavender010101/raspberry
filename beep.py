@@ -55,7 +55,7 @@ class Buzzer_Song(object):
 
         # delay
         while delay_time > 0:
-            if GOIO.input(self.pin_btn) == HIGH:
+            if GPIO.input(self.pin_btn) == GPIO.HIGH:
                 cnt += 1
             time.sleep(0.01)
             delay_time -= 1
