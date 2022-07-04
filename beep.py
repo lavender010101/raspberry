@@ -2,6 +2,9 @@
 import RPi.GPIO as GPIO
 import time
 
+# 设置引脚编号模式
+GPIO.setmode(GPIO.BOARD)
+
 
 class Buzzer_Song(object):
     # pin_buzzer是IO引脚， delay_beat是一个音持续的时间（节拍时长控制）
@@ -79,8 +82,6 @@ class Buzzer_Song(object):
 
 
 if __name__ == "__main__":
-    # 设置引脚编号模式
-    GPIO.setmode(GPIO.BOARD)
     # 定义buzzer引脚
     pin_buzzer = 11
     pin_btn = 35
