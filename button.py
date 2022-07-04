@@ -4,11 +4,15 @@ import time
 GPIO.setmode(GPIO.BOARD)
 
 btn = 35
+
+# led red
 led1 = 29
+
+# led green
 led2 = 31
 
 
-def switchy(flag):
+def led_switch(flag):
     if flag == 0:
         GPIO.output(led1, GPIO.LOW)
         GPIO.output(led2, GPIO.LOW)
@@ -20,6 +24,10 @@ def switchy(flag):
         GPIO.output(led2, GPIO.HIGH)
 
 
+def beep_switch():
+    pass
+
+
 if __name__ == "__main__":
     GPIO.setup(btn, GPIO.IN)
     GPIO.setup(led1, GPIO.OUT)
@@ -28,11 +36,11 @@ if __name__ == "__main__":
     try:
         flag = 0
         while True:
-            switchy(flag)
+            led_switch(flag)
             if GPIO.input(btn) == GPIO.HIGH:
                 flag += 1
-                switchy(flag)
-                time.sleep(1)
+                led_switch(flag)
+                time.sleep(0.01)
 
     except KeyboardInterrupt:
         print("Exiting...")
