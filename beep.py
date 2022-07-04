@@ -98,7 +98,7 @@ if __name__ == "__main__":
     # 循环演奏音乐
     try:
         while True:
-            start == 0
+            start = 0
             while start < 1:
                 start = m_buzzer_song.action(1)
             m_buzzer_song.play_song(notes, beats)
