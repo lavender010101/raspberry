@@ -83,8 +83,9 @@ if __name__ == "__main__":
     GPIO.setmode(GPIO.BOARD)
     # 定义buzzer引脚
     pin_buzzer = 11
+    pin_btn = 35
     # 定义一个对象 m_buzzer_song
-    m_buzzer_song = Buzzer_Song(pin_buzzer, 0.3)
+    m_buzzer_song = Buzzer_Song(pin_buzzer, 0.3, pin_btn)
     notes = [
         'cm1', 'cm1', 'cm1', 'cl5', 'cm3', 'cm3', 'cm3', 'cm1', 'cm1', 'cm3',
         'cm5', 'cm5', 'cm4', 'cm3', 'cm2', 'cm2', 'cm3', 'cm4', 'cm4', 'cm3',
@@ -99,7 +100,7 @@ if __name__ == "__main__":
         while True:
             start == 0
             while start < 1:
-                start = m_buzzer_song.action(10)
+                start = m_buzzer_song.action(1)
             m_buzzer_song.play_song(notes, beats)
     except KeyboardInterrupt:
         print('\n Ctrl + C QUIT')
