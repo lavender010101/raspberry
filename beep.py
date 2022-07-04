@@ -18,6 +18,6 @@ def setup(pin, limit):
 if __name__ == "__main__":
     pin = 11
     limit = 100
-    setup(pin)
+    setup(pin,limit)
 
     pwm.ChangeDutyCycle(100)
