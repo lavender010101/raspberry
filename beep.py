@@ -66,18 +66,18 @@ class Buzzer_Song(object):
         if cnt == 1:
             return 1
         # exit
-        elif cnt >= 3:
+        elif cnt >= 10:
             self.destroy()
             return 3
         # stop
-        elif cnt == 2:
+        elif cnt <= 5:
             return 2
         return 0
 
     # 对象销毁
     def destroy(self):
-        self.Buzzer.stop()
-        GPIO.output(self.pin_buzzer, GPIO.LOW)
+        # self.Buzzer.stop()
+        # GPIO.output(self.pin_buzzer, GPIO.LOW)
         GPIO.cleanup()
 
 
