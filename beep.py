@@ -5,7 +5,7 @@ import time
 
 class Buzzer_Song(object):
     # pin_buzzer是IO引脚， delay_beat是一个音持续的时间（节拍时长控制）
-    def __init__(self, pin_buzzer, delay_beat=0.5, pin_btn):
+    def __init__(self, pin_buzzer, pin_btn, delay_beat=0.5):
         # 设置蜂鸣器引脚模式
         self.pin_buzzer = pin_buzzer
         self.pin_btn = pin_btn
@@ -85,7 +85,7 @@ if __name__ == "__main__":
     pin_buzzer = 11
     pin_btn = 35
     # 定义一个对象 m_buzzer_song
-    m_buzzer_song = Buzzer_Song(pin_buzzer, 0.3, pin_btn)
+    m_buzzer_song = Buzzer_Song(pin_buzzer, pin_btn, 0.3)
     notes = [
         'cm1', 'cm1', 'cm1', 'cl5', 'cm3', 'cm3', 'cm3', 'cm1', 'cm1', 'cm3',
         'cm5', 'cm5', 'cm4', 'cm3', 'cm2', 'cm2', 'cm3', 'cm4', 'cm4', 'cm3',
